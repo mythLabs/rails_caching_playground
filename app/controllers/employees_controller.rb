@@ -5,11 +5,13 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     @employees = Employee.all
+    fresh_when etag: @employees
   end
 
   # GET /employees/1
   # GET /employees/1.json
   def show
+    fresh_when etag: @employees
   end
 
   # GET /employees/new
