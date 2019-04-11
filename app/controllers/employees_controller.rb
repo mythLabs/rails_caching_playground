@@ -8,6 +8,10 @@ class EmployeesController < ApplicationController
     @employees = Employee.all
   end
 
+  def show_all
+    @employees = Employee.all
+  end
+
   # GET /employees/1
   # GET /employees/1.json
   def show
