@@ -4,14 +4,14 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
+    #FRAGMENT CACHING
     @employees = Employee.all
-    expires_in 2.minutes
-    fresh_when etag: @employees, public: true
   end
 
   # GET /employees/1
   # GET /employees/1.json
   def show
+    #HTTP CACHING
     expires_in 2.minutes
     fresh_when etag: @employees, public: true
   end

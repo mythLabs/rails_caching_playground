@@ -4,6 +4,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
+    #HTTP CACHING
     @companies = Company.all
     #fresh_when etag: @companies
 
@@ -19,6 +20,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    #HTTP CACHING
     #fresh_when last_modified: @company.updated_at
     #fresh_when etag: @company
 
