@@ -5,14 +5,29 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.all
-    fresh_when etag: @companies
+    #fresh_when etag: @companies
+
+    if stale? @companies
+      respond_to do |format|
+      format.html
+      format.json { render json: @companies }
+      end 
+    end
+
   end
 
   # GET /companies/1
   # GET /companies/1.json
   def show
     #fresh_when last_modified: @company.updated_at
-    fresh_when etag: @company
+    #fresh_when etag: @company
+
+    if stale? @company
+      respond_to do |format|
+      format.html
+      format.json { render json: @company }
+      end 
+    end
   end
 
   # GET /companies/new
